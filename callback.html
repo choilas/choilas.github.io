@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  if (code) {
+    fetch('http://localhost:8080/callback?code=' + code)
+      .then(() => document.write('인증 완료! 앱으로 돌아가세요.'))
+      .catch(() => document.write('앱이 실행 중인지 확인하세요.'));
+  }
+</script>
+</body>
+</html>
